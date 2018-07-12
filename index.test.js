@@ -7,7 +7,7 @@ const run = (input) => {
 	const normalInput = normalize(input);
 	const { code } = babel.transform(normalInput, { plugins: [plugin] });
 	const normalCode = normalize(code);
-	expect(normalCode.startsWith(normalInput)).toBe(true);
+	expect(normalCode).toContain(normalInput);
 	return normalCode.replace(normalInput, '').trim();
 };
 
@@ -46,10 +46,10 @@ test('top-level functions should be exported', () => {
 	expect(result).toEqual('export { foo }');
 });
 
-// test('top-level anonymous function expressions should be exported', () => {
-// 	const result = run('const foo = function() {}');
-// 	expect(result).toEqual('export { foo }');
-// });
+test('top-level anonymous function expressions should be exported', () => {
+	const result = run('const foo = function () {}');
+	expect(result).toEqual('export { foo }');
+});
 
 test('top-level named function expressions should be exported as both names', () => {
 	const result = run('const foo = function bar() {}');
@@ -61,15 +61,15 @@ test('top-level classes should be exported', () => {
 	expect(result).toEqual('export { Foo }');
 });
 
-// test('top-level anonymous class expressions should be exported', () => {
-// 	const result = run('const Foo = class() {}');
-// 	expect(result).toEqual('export { Foo }');
-// });
+test('top-level anonymous class expressions should be exported', () => {
+	const result = run('const Foo = class {}');
+	expect(result).toEqual('export { Foo }');
+});
 
-// test('top-level named class expressions should be exported as both names', () => {
-// 	const result = run('const Foo = class Bar() {}');
-// 	expect(result).toEqual('export { Foo, Bar }');
-// });
+test('top-level named class expressions should be exported as both names', () => {
+	const result = run('const Foo = class Bar {}');
+	expect(result).toEqual('export { Foo, Bar }');
+});
 
 test('non top-level const should not be exported', () => {
 	const result = run('(() => { const foo = 1 })()');

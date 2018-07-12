@@ -16,7 +16,7 @@ module.exports = ({ types: t }) => ({
 				// Identifiers that come from the right side of the expression.
 				(bodyPath.node.declarations || []).forEach((declaration) => {
 					const { init } = declaration;
-					if (init && (t.isFunctionExpression(init) || t.isClassExpression(init))) {
+					if (init && init.id && (t.isFunctionExpression(init) || t.isClassExpression(init))) {
 						identifiers.push(init.id);
 					}
 				});
