@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/MaienM/babel-plugin-export-toplevel/issues"
   },
-  "homepage": "https://github.com/MaienM/babel-plugin-export-toplevel#readme"
+  "homepage": "https://github.com/MaienM/babel-plugin-export-toplevel#readme",
+  "devDependencies": {
+    "babel": "^6.23.0"
+  }
 }
