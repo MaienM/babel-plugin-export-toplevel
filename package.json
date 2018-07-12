@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/MaienM/babel-plugin-export-toplevel#readme",
   "devDependencies": {
-    "babel": "^6.23.0"
+    "babel": "^6.23.0",
+    "jest": "^23.4.0"
   }
 }
