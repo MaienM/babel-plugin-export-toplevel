@@ -1,0 +1,22 @@
+{
+  "name": "babel-plugin-export-toplevel",
+  "version": "1.0.0",
+  "description": "A babel plugin that automatically exports all top-level names",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaienM/babel-plugin-export-toplevel.git"
+  },
+  "keywords": [
+    "babel"
+  ],
+  "author": "Michon van Dooren",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MaienM/babel-plugin-export-toplevel/issues"
+  },
+  "homepage": "https://github.com/MaienM/babel-plugin-export-toplevel#readme"
+}
